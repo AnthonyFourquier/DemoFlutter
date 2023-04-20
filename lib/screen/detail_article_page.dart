@@ -8,6 +8,7 @@ class DetailsArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(accesoire.title),),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -16,7 +17,6 @@ class DetailsArticlePage extends StatelessWidget {
             Hero(
                 tag: accesoire.id,
                 child: Image.network(accesoire.urlImage)),
-            Text(accesoire.title, style: Theme.of(context).textTheme.bodyLarge),
             Text(accesoire.description),
 
           ],
