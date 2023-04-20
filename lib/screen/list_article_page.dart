@@ -1,5 +1,6 @@
 import 'package:demoflutter/bo/accessoire.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ListArticlePage extends StatelessWidget {
   ListArticlePage({Key? key}) : super(key: key);
@@ -98,12 +99,13 @@ class CardList extends StatelessWidget {
     return Card(
       elevation: 8,
       child: ListTile(
-        leading: Image.network(acessoire.urlImage),
+        leading: Hero(
+            tag: acessoire.id,
+            child: Image.network(acessoire.urlImage)),
         title : Text(acessoire.title, maxLines: 2,),
         subtitle : Text('${acessoire.price} €', style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w400),),
         trailing: IconButton(onPressed : () => {}, icon: Icon(Icons.add, color: Colors.blue,)),
-        onTap: () {
-        },
+        onTap: ()=> context.go('/detail', extra: acessoire),
       ),
     );
   }

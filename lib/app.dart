@@ -1,5 +1,6 @@
 
-import 'package:demoflutter/main.dart';
+import 'package:demoflutter/bo/accessoire.dart';
+import 'package:demoflutter/screen/detail_article_page.dart';
 import 'package:demoflutter/screen/home_page.dart';
 import 'package:demoflutter/screen/list_article_page.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:go_router/go_router.dart';
 
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -20,7 +21,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: MyHomePage(title: 'Panier Flutter Sales'),
-      home: ListArticlePage(),
     );
   }
   final _router = GoRouter(
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         routes: [
           GoRoute(
           path:'detail',
-          builder: (context,state) => DetailArticlePage(),
+          builder: (context,state) => DetailsArticlePage(state.extra as Accessoire),
           routes: [
             GoRoute(
               path:'cartPage',
